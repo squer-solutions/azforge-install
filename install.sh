@@ -11,7 +11,9 @@ if ! gh auth status >/dev/null 2>&1; then
   exit 1
 fi
 
-echo "Downloading AzForge installer..."
-gh release download --repo squer-solutions/azforge-squer --pattern 'azforge-install.sh' -D /tmp --clobber
-bash /tmp/azforge-install.sh
-rm -f /tmp/azforge-install.sh
+echo "Cloning AzForge..."
+TMPDIR_AZFORGE=$(mktemp -d)
+trap 'rm -rf "$TMPDIR_AZFORGE"' EXIT
+
+gh repo clone squer-solutions/azforge-squer "$TMPDIR_AZFORGE" -- --depth=1 --quiet
+bash "$TMPDIR_AZFORGE/scripts/install.sh"
