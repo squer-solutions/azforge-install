@@ -9,10 +9,16 @@ Install [AzForge](https://github.com/squer-solutions/azforge-squer) into your pr
 
 ## Install
 
-Run this from your **project root**:
+Run from your **project root**:
 
+**macOS / Linux / Git Bash:**
 ```bash
 curl -fsSL https://raw.githubusercontent.com/squer-solutions/azforge-install/main/install.sh | bash
+```
+
+**Windows (PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/squer-solutions/azforge-install/main/install.ps1 | iex
 ```
 
 ## What it does
